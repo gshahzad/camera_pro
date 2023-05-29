@@ -107,10 +107,10 @@
         <div class="container">
 <h2 class="text-center">How Does It Work?</h2>
 <div class="btns d-flex justify-content-center">
-    <button class="btn1">
+    <button id="btnview" class="btn1">
       <img src="{{ asset('img/view.png')}}" alt="info" /> View
     </button>
-    <button class="btn2">
+    <button id="btnjoin" class="btn2">
       <img src="{{ asset('img/database.png')}}" alt="info" /> join
     </button>
   </div>
@@ -121,7 +121,7 @@
     </section>
 
 
-    <section>
+    <section id="sec_view_join">
       <div class="innovation-bg">
         <div class="container">
           <div class="position-relative">
@@ -160,6 +160,8 @@
         </div>
 
       </div>
+      
+      
     </section>
     <section class="join-us primary_bg p-5">
       <div class="container">
@@ -171,6 +173,7 @@
 
       </div>
     </section>
-
+<script language="javascript">
+</script>
 
 @endsection
