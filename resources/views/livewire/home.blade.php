@@ -25,7 +25,10 @@
                 <h5 class="card-title">PPV Live Stream</h5>
                 <a href=""><img src="{{ asset('img/Close-Icon.svg') }}" alt=""></a>
               </div>
-              <img class="card-img" src="{{ asset('img/live-stream-image.jpg')}}" alt="" />
+             <!-- <img class="card-img" src="{{ asset('img/live-stream-image.jpg')}}" alt="" />-->
+              
+              <video id="vid" muted="" playsinline="" loop="" autoplay="" width="300" height="200"> <source src="https://watcher.org.uk/wp-content/uploads/2022/10/watcher-clip.mp4" type="video/mp4"> Your browser does not support the video tag. </video>
+              
             </div>
 
           </div>
@@ -53,8 +56,8 @@
             <div class="card-body">
                 <img class="card-img mb-2" onmouseover="Whiteimg(this)" onmouseout="normalImg(this)" src="{{ asset('img/Icons/1-Icon-Blue.svg')}}" alt="" style="width:
                 50px;"/>
-                <h5 class="card-title mt-4">PPV Live Stream</h5>
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Blanditiis sequi sint nulla eum alias optio at magni dolor exercitationem error.</p>
+                <h5 class="card-title mt-4">Access Thousands of Live Streams</h5>
+                <p style="visibility:hidden">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Blanditiis sequi sint nulla eum alias optio at magni dolor exercitationem error.</p>
 
             </div>
           </div>
@@ -63,8 +66,8 @@
             <div class="card-body">
                 <img class="card-img mb-2" src="{{ asset('img/Icons/2-Icon-Blue.svg')}}" alt="" style="width:
                 50px;"/>
-                <h5 class="card-title mt-4">PPV Live Stream</h5>
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Blanditiis sequi sint nulla eum alias optio at magni dolor exercitationem error.</p>
+                <h5 class="card-title mt-4">Check Live Traffic & Parking</h5>
+                <p style="visibility:hidden">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Blanditiis sequi sint nulla eum alias optio at magni dolor exercitationem error.</p>
 
             </div>
           </div>
@@ -72,8 +75,8 @@
             <div class="card-body">
                 <img class="card-img mb-2" src="{{ asset('img/Icons/3-Icon-Blue.svg')}}" alt="" style="width:
                 50px;"/>
-                <h5 class="card-title mt-4">PPV Live Stream</h5>
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Blanditiis sequi sint nulla eum alias optio at magni dolor exercitationem error.</p>
+                <h5 class="card-title mt-4">Check Local Weather</h5>
+                <p style="visibility:hidden">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Blanditiis sequi sint nulla eum alias optio at magni dolor exercitationem error.</p>
 
             </div>
           </div>
@@ -81,8 +84,8 @@
             <div class="card-body">
                 <img class="card-img mb-2" src="{{ asset('img/Icons/4-Icon-Blue.svg')}}" alt="" style="width:
                 50px;"/>
-                <h5 class="card-title mt-4">PPV Live Stream</h5>
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Blanditiis sequi sint nulla eum alias optio at magni dolor exercitationem error.</p>
+                <h5 class="card-title mt-4">Commercial & Public Services</h5>
+                <p style="visibility:hidden">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Blanditiis sequi sint nulla eum alias optio at magni dolor exercitationem error.</p>
 
             </div>
           </div>
@@ -90,8 +93,8 @@
             <div class="card-body">
                 <img class="card-img mb-2" src="{{ asset('img/Icons/5-Icon-Blue.svg')}}" alt="" style="width:
                 50px;"/>
-                <h5 class="card-title mt-4">PPV Live Stream</h5>
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Blanditiis sequi sint nulla eum alias optio at magni dolor exercitationem error.</p>
+                <h5 class="card-title mt-4">Add your Cameras & Earn Revenue</h5>
+                <p style="visibility:hidden">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Blanditiis sequi sint nulla eum alias optio at magni dolor exercitationem error.</p>
 
             </div>
           </div>
