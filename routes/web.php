@@ -1,7 +1,5 @@
 <?php
-
 use Illuminate\Support\Facades\Route;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,7 +10,6 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
 Route::get('/', \App\Http\Livewire\HomeController::class);
 Route::get('/aboutus', \App\Http\Livewire\AboutUsController::class);
 Route::get('/contact_us', \App\Http\Livewire\ContactUsController::class);
