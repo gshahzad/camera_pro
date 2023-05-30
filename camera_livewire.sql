@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 28, 2023 at 09:12 PM
+-- Generation Time: May 30, 2023 at 02:31 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -27,6 +27,7 @@ SET time_zone = "+00:00";
 -- Table structure for table `cameras`
 --
 
+DROP TABLE IF EXISTS `cameras`;
 CREATE TABLE `cameras` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `name` varchar(255) NOT NULL,
@@ -43,18 +44,19 @@ CREATE TABLE `cameras` (
   `country` varchar(255) DEFAULT NULL,
   `status` int(11) NOT NULL DEFAULT 0,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `price` double(14,2) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `cameras`
 --
 
-INSERT INTO `cameras` (`id`, `name`, `description`, `camera_embed_code`, `camera_longitude`, `camera_latitude`, `full_name`, `email_address`, `contact_no`, `address`, `city`, `post_code`, `country`, `status`, `created_at`, `updated_at`) VALUES
-(1, 'Camera 1', 'delete old video files', 'qweqwe', 'qwe', 'qweqweqwe', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2023-05-28 14:22:49', '2023-05-28 14:22:49'),
-(2, 'Camera 2', 'delete old video files', 'qweqwe', 'qwe', 'qweqweqwe', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2023-05-28 14:22:49', '2023-05-28 14:22:49'),
-(3, 'Camera 3', 'delete old video files', 'qweqwe', 'qwe', 'qweqweqwe', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2023-05-28 14:22:49', '2023-05-28 14:22:49'),
-(4, 'KORTA Integration', 'delete old video files', '456456', 'qwe', 'qweqweqwe', 'Muhammad Shahzad', 'gshahzad@hotmail.com', '0564067839', 'Al riaz building room no M05', 'Ajman', '798', 'United Arab Emirates', 1, '2023-05-28 15:11:21', '2023-05-28 15:11:21');
+INSERT INTO `cameras` (`id`, `name`, `description`, `camera_embed_code`, `camera_longitude`, `camera_latitude`, `full_name`, `email_address`, `contact_no`, `address`, `city`, `post_code`, `country`, `status`, `created_at`, `updated_at`, `price`) VALUES
+(1, 'Camera 1', 'delete old video files', 'qweqwe', 'qwe', 'qweqweqwe', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2023-05-28 14:22:49', '2023-05-28 14:22:49', 12.00),
+(2, 'Camera 2', 'delete old video files', 'qweqwe', 'qwe', 'qweqweqwe', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2023-05-28 14:22:49', '2023-05-28 14:22:49', 14.00),
+(3, 'Camera 3', 'delete old video files', 'qweqwe', 'qwe', 'qweqweqwe', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2023-05-28 14:22:49', '2023-05-28 14:22:49', 15.00),
+(4, 'KORTA Integration', 'delete old video files', '456456', 'qwe', 'qweqweqwe', 'Muhammad Shahzad', 'gshahzad@hotmail.com', '0564067839', 'Al riaz building room no M05', 'Ajman', '798', 'United Arab Emirates', 1, '2023-05-28 15:11:21', '2023-05-28 15:11:21', 14.00);
 
 -- --------------------------------------------------------
 
@@ -62,6 +64,7 @@ INSERT INTO `cameras` (`id`, `name`, `description`, `camera_embed_code`, `camera
 -- Table structure for table `cameras-`
 --
 
+DROP TABLE IF EXISTS `cameras-`;
 CREATE TABLE `cameras-` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `name` varchar(255) NOT NULL,
@@ -87,6 +90,7 @@ INSERT INTO `cameras-` (`id`, `name`, `description`, `camera_embed_code`, `camer
 -- Table structure for table `failed_jobs`
 --
 
+DROP TABLE IF EXISTS `failed_jobs`;
 CREATE TABLE `failed_jobs` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `uuid` varchar(255) NOT NULL,
@@ -103,6 +107,7 @@ CREATE TABLE `failed_jobs` (
 -- Table structure for table `migrations`
 --
 
+DROP TABLE IF EXISTS `migrations`;
 CREATE TABLE `migrations` (
   `id` int(10) UNSIGNED NOT NULL,
   `migration` varchar(255) NOT NULL,
@@ -126,6 +131,7 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 -- Table structure for table `password_reset_tokens`
 --
 
+DROP TABLE IF EXISTS `password_reset_tokens`;
 CREATE TABLE `password_reset_tokens` (
   `email` varchar(255) NOT NULL,
   `token` varchar(255) NOT NULL,
@@ -138,6 +144,7 @@ CREATE TABLE `password_reset_tokens` (
 -- Table structure for table `personal_access_tokens`
 --
 
+DROP TABLE IF EXISTS `personal_access_tokens`;
 CREATE TABLE `personal_access_tokens` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `tokenable_type` varchar(255) NOT NULL,
@@ -157,6 +164,7 @@ CREATE TABLE `personal_access_tokens` (
 -- Table structure for table `users`
 --
 
+DROP TABLE IF EXISTS `users`;
 CREATE TABLE `users` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `name` varchar(255) NOT NULL,

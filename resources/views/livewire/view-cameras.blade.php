@@ -12,7 +12,7 @@
             <div class="card">
              
               <div class="card-body" style="background-image:url({{asset('img/camera.png')}})">
-                <a href="#" style="color:rgba(0,0,0,1); "> {{$item->name}}</a>
+                <a href="{{url('camera_detail/'.$item->id.'/'.Str::slug($item->name).'')}}" style="color:rgba(0,0,0,1); "> {{$item->name}}</a>
               </div>
             </div>
           </div>

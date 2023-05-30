@@ -13,13 +13,15 @@
           </div>
           <div class="email">
           <img class="email-img img" src="{{ asset('img//email.png')}}" alt="">
-          <input type="text" name="" id="name" placeholder="Email">
+
+          <input type="text" name="" id="email" placeholder="Email">
         </div>
         <div class="phone">
           <img class="img" src="{{ asset('img/phone.png')}}" alt="">
-          <input type="text" name="" id="name" placeholder="Contact Number">
+          <input type="text" name="" id="name" placeholder="Phone Number">
         </div>
-          <textarea name="" id="" placeholder="Message"></textarea>
+          <textarea name="" id="" placeholder="Message"  ></textarea>
+
           </div>
           <button><img class="pe-2" src="{{ asset('img/mail.png')}}" alt=""> Send Message</button>
         </form>

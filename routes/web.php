@@ -15,3 +15,5 @@ Route::get('/aboutus', \App\Http\Livewire\AboutUsController::class);
 Route::get('/contact_us', \App\Http\Livewire\ContactUsController::class);
 Route::get('/view_cameras', \App\Http\Livewire\ViewCamerasController::class);
 Route::get('/enroll_camera', \App\Http\Livewire\EnrollCamera::class);
+Route::get('/camera_detail/{camera_id}/{camera_title}', \App\Http\Livewire\CameraDetail::class);
+Route::get('/checkout/{camera_id}/{camera_title}', \App\Http\Livewire\Checkout::class);
