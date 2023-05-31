@@ -18,23 +18,29 @@
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ms-auto">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="{{url('/')}}">HOME</a>
+              <a  class="nav-link {{ Request::segment(1) === '' ? 'active' : null }}" aria-current="page" href="{{url('/')}}">HOME</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{{url('aboutus')}}">ABOUT</a>
+              <a class="nav-link {{ Request::segment(1) === 'aboutus' ? 'active' : null }}" href="{{url('aboutus')}}">ABOUT</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{{url('view_cameras')}}">View cameras</a>
+              <a class="nav-link {{ Request::segment(1) === 'view_cameras' ? 'active' : null }}" href="{{url('view_cameras')}}">View cameras</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{{url('enroll_camera')}}">Enroll & CREATE REVENUE</a>
+              <a class="nav-link {{ Request::segment(1) === 'enroll_camera' ? 'active' : null }}" href="{{url('enroll_camera')}}">Enroll & CREATE REVENUE</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{{url('contact_us')}}">CONTACT</a>
+              <a class="nav-link {{ Request::segment(1) === 'contact_us' ? 'active' : null }}" href="{{url('contact_us')}}">CONTACT</a>
             </li>
+            
+             
+            
             <li class="nav-item">
               <button> <a href="{{url('enroll_camera')}}"> Enroll Now</a></button>
             </li>
+            
+            
+            
           </ul>
         </div>
       </div>
