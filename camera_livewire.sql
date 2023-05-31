@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 30, 2023 at 02:31 PM
+-- Generation Time: May 31, 2023 at 10:21 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -53,36 +53,32 @@ CREATE TABLE `cameras` (
 --
 
 INSERT INTO `cameras` (`id`, `name`, `description`, `camera_embed_code`, `camera_longitude`, `camera_latitude`, `full_name`, `email_address`, `contact_no`, `address`, `city`, `post_code`, `country`, `status`, `created_at`, `updated_at`, `price`) VALUES
-(1, 'Camera 1', 'delete old video files', 'qweqwe', 'qwe', 'qweqweqwe', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2023-05-28 14:22:49', '2023-05-28 14:22:49', 12.00),
-(2, 'Camera 2', 'delete old video files', 'qweqwe', 'qwe', 'qweqweqwe', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2023-05-28 14:22:49', '2023-05-28 14:22:49', 14.00),
-(3, 'Camera 3', 'delete old video files', 'qweqwe', 'qwe', 'qweqweqwe', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2023-05-28 14:22:49', '2023-05-28 14:22:49', 15.00),
-(4, 'KORTA Integration', 'delete old video files', '456456', 'qwe', 'qweqweqwe', 'Muhammad Shahzad', 'gshahzad@hotmail.com', '0564067839', 'Al riaz building room no M05', 'Ajman', '798', 'United Arab Emirates', 1, '2023-05-28 15:11:21', '2023-05-28 15:11:21', 14.00);
+(1, 'Camera 1', 'Birmingham Warehouse Parking', 'qweqwe', 'qwe', 'qweqweqwe', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2023-05-28 14:22:49', '2023-05-28 14:22:49', 12.00),
+(2, 'Camera 2', 'Birmingham Warehouse Parking', 'qweqwe', 'qwe', 'qweqweqwe', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2023-05-28 14:22:49', '2023-05-28 14:22:49', 14.00),
+(3, 'Camera 3', 'Birmingham Warehouse Parking', 'qweqwe', 'qwe', 'qweqweqwe', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2023-05-28 14:22:49', '2023-05-28 14:22:49', 15.00),
+(4, 'Warehouse Parking', 'Birmingham Warehouse Parking', '456456', 'qwe', 'qweqweqwe', 'Jsaon', 'json@hotmail.com', '+44564067839', 'Birmingham', 'Birmingham', '798', 'UK', 1, '2023-05-28 15:11:21', '2023-05-28 15:11:21', 14.00);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `cameras-`
+-- Table structure for table `camera_prices_packages`
 --
 
-DROP TABLE IF EXISTS `cameras-`;
-CREATE TABLE `cameras-` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255) NOT NULL,
-  `description` varchar(255) DEFAULT NULL,
-  `camera_embed_code` varchar(255) DEFAULT NULL,
-  `camera_longitude` varchar(255) DEFAULT NULL,
-  `camera_latitude` varchar(255) DEFAULT NULL,
-  `status` int(11) NOT NULL DEFAULT 0,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+DROP TABLE IF EXISTS `camera_prices_packages`;
+CREATE TABLE `camera_prices_packages` (
+  `id` int(11) UNSIGNED DEFAULT NULL,
+  `duration` int(11) DEFAULT NULL,
+  `price` double(14,2) UNSIGNED DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `cameras-`
+-- Dumping data for table `camera_prices_packages`
 --
 
-INSERT INTO `cameras-` (`id`, `name`, `description`, `camera_embed_code`, `camera_longitude`, `camera_latitude`, `status`, `created_at`, `updated_at`) VALUES
-(1, 'Camera 1', 'Here will come camera description,Here will come camera descriptionHere will come camera descriptionHere will come camera descriptionHere will come camera description', NULL, NULL, NULL, 1, '2023-05-27 19:36:41', '2023-05-27 19:36:41');
+INSERT INTO `camera_prices_packages` (`id`, `duration`, `price`) VALUES
+(1, 5, 10.00),
+(2, 10, 15.00),
+(3, 15, 23.00);
 
 -- --------------------------------------------------------
 
@@ -123,7 +119,76 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (2, '2014_10_12_100000_create_password_reset_tokens_table', 1),
 (3, '2019_08_19_000000_create_failed_jobs_table', 1),
 (4, '2019_12_14_000001_create_personal_access_tokens_table', 1),
-(7, '2023_05_27_192931_create_cameras_table', 2);
+(7, '2023_05_27_192931_create_cameras_table', 2),
+(10, '2023_05_27_192931_create_orders_products_table', 3),
+(11, '2023_05_27_192931_create_orders_table', 3);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `orders`
+--
+
+DROP TABLE IF EXISTS `orders`;
+CREATE TABLE `orders` (
+  `order_id` bigint(20) UNSIGNED NOT NULL,
+  `order_total` double(14,2) NOT NULL,
+  `transaction_id` varchar(255) DEFAULT NULL,
+  `order_date` datetime DEFAULT NULL,
+  `customer_name` varchar(255) DEFAULT NULL,
+  `customer_email` varchar(255) DEFAULT NULL,
+  `customer_address` varchar(255) DEFAULT NULL,
+  `customer_city` varchar(255) DEFAULT NULL,
+  `post_code` varchar(255) DEFAULT NULL,
+  `camera_duration` int(11) DEFAULT 0,
+  `user_viewed_time` int(11) DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `orders`
+--
+
+INSERT INTO `orders` (`order_id`, `order_total`, `transaction_id`, `order_date`, `customer_name`, `customer_email`, `customer_address`, `customer_city`, `post_code`, `camera_duration`, `user_viewed_time`) VALUES
+(1, 15.00, 'ch_3NDmo2CED2ssmkfY0WzEgjUz', '2023-05-31 11:03:06', 'Muhammad Shahzad', 'gshahzad@hotmail.com', 'Al riaz building room no M05', 'Ajman', '798', 5, 0),
+(2, 15.00, 'ch_3NDqM5CED2ssmkfY0SzVk3Qg', '2023-05-31 14:50:33', 'Muhammad Shahzad', 'gshahzad@hotmail.com', 'Al riaz building room no M05', 'Ajman', '798', 5, 0),
+(3, 15.00, 'ch_3NDqRNCED2ssmkfY1P5PJOI1', '2023-05-31 14:55:58', 'Muhammad Shahzad', 'gshahzad@hotmail.com', 'Al riaz building room no M05', 'Ajman', '123', 5, 0),
+(4, 15.00, 'ch_3NDqSKCED2ssmkfY1g6641ja', '2023-05-31 14:56:57', 'Muhammad Shahzad', 'gshahzad@hotmail.com', 'Al riaz building room no M05', 'Ajman', '123', 5, 0),
+(5, 15.00, 'ch_3NDqTDCED2ssmkfY01fKg5Tu', '2023-05-31 14:57:52', 'Muhammad Shahzad', 'gshahzad@hotmail.com', 'Al riaz building room no M05', 'Ajman', '54000', 5, 0),
+(6, 10.00, 'ch_3NDsYdCED2ssmkfY0iktYhu4', '2023-05-31 17:11:37', 'Muhammad Shahzad', 'gshahzad@hotmail.com', 'Al riaz building room no M05', 'Ajman', '789798', 5, 0),
+(7, 10.00, 'ch_3NDsZECED2ssmkfY0UJE3BeB', '2023-05-31 17:12:12', 'Muhammad Shahzad', 'gshahzad@hotmail.com', 'Al riaz building room no M05', 'Ajman', '789798', 5, 0),
+(8, 23.00, 'ch_3NDtYBCED2ssmkfY0SeHvxGC', '2023-05-31 18:15:12', 'Muhammad Shahzad', 'gshahzad@hotmail.com', 'Al riaz building room no M05', 'Ajman', '789798', 15, 0),
+(9, 15.00, 'ch_3NDuI5CED2ssmkfY09TypxXD', '2023-05-31 19:02:37', 'Muhammad Shahzad', 'gshahzad@hotmail.com', 'Al riaz building room no M05', 'Ajman', '789798', 10, 0),
+(10, 10.00, 'ch_3NDuyQCED2ssmkfY1zjEjBTh', '2023-05-31 19:46:23', 'Muhammad Shahzad', 'gshahzad@hotmail.com', 'Al riaz building room no M05', 'Ajman', '789798', 5, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `orders_products`
+--
+
+DROP TABLE IF EXISTS `orders_products`;
+CREATE TABLE `orders_products` (
+  `orders_product_id` bigint(20) UNSIGNED NOT NULL,
+  `order_id` int(11) NOT NULL DEFAULT 0,
+  `product_id` int(11) NOT NULL DEFAULT 0,
+  `product_price` int(11) NOT NULL DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `orders_products`
+--
+
+INSERT INTO `orders_products` (`orders_product_id`, `order_id`, `product_id`, `product_price`) VALUES
+(1, 1, 3, 15),
+(2, 2, 3, 15),
+(3, 3, 3, 15),
+(4, 4, 3, 15),
+(5, 5, 3, 15),
+(6, 6, 3, 10),
+(7, 7, 3, 10),
+(8, 8, 3, 23),
+(9, 9, 4, 15),
+(10, 10, 4, 10);
 
 -- --------------------------------------------------------
 
@@ -187,12 +252,6 @@ ALTER TABLE `cameras`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `cameras-`
---
-ALTER TABLE `cameras-`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indexes for table `failed_jobs`
 --
 ALTER TABLE `failed_jobs`
@@ -204,6 +263,18 @@ ALTER TABLE `failed_jobs`
 --
 ALTER TABLE `migrations`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `orders`
+--
+ALTER TABLE `orders`
+  ADD PRIMARY KEY (`order_id`);
+
+--
+-- Indexes for table `orders_products`
+--
+ALTER TABLE `orders_products`
+  ADD PRIMARY KEY (`orders_product_id`);
 
 --
 -- Indexes for table `password_reset_tokens`
@@ -237,12 +308,6 @@ ALTER TABLE `cameras`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `cameras-`
---
-ALTER TABLE `cameras-`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
-
---
 -- AUTO_INCREMENT for table `failed_jobs`
 --
 ALTER TABLE `failed_jobs`
@@ -252,7 +317,19 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
+-- AUTO_INCREMENT for table `orders`
+--
+ALTER TABLE `orders`
+  MODIFY `order_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT for table `orders_products`
+--
+ALTER TABLE `orders_products`
+  MODIFY `orders_product_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`

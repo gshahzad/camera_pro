@@ -100,7 +100,7 @@
 <div class="container">
 <div class="text-center w-100">
   <h1>Join us and start earning!</h1>
-  <button class="primary_btn mx-auto mt-5">Find Out More</button>
+  <button class="primary_btn mx-auto mt-5"><a href="{{url('contact')}}" style="text-decoration: none; color:#ffffff">Find Out More</a></button>
 </div>
 </div>
 </section>

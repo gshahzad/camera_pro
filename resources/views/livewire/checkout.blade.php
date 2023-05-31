@@ -14,16 +14,16 @@
 
   <div class="col-sm-6" >
 
-    <label for="customer_name" class="d-block">Customer Name<span style="color:rgba(255,0,0,1)">*</span></label>
+    <label for="customer_name" class="d-block"> Name<span style="color:rgba(255,0,0,1)">*</span></label>
     <input type="text" id="customer_name" name="customer_name"  required="required"  wire:model="customer_name">
     @error('customer_name') <span class="error">{{ $customer_name }} </span> @enderror
     
-    <label for="customer_email" class="d-block">Customer Email<span style="color:rgba(255,0,0,1)">*</span></label>
+    <label for="customer_email" class="d-block"> Email<span style="color:rgba(255,0,0,1)">*</span></label>
     <input type="text" id="customer_email" name="customer_email"  required="required"  wire:model="customer_email">
     @error('customer_email') <span class="error">{{ $customer_email }} </span> @enderror
     
      
-    <label for="customer_address" class="d-block">Customer Address<span style="color:rgba(255,0,0,1)">*</span></label>
+    <label for="customer_address" class="d-block"> Address<span style="color:rgba(255,0,0,1)">*</span></label>
     <input type="text" id="customer_address" name="customer_address"  required="required" wire:model="customer_address" >
     @error('customer_address') <span class="error">{{ $customer_address }} </span> @enderror
     
@@ -38,9 +38,19 @@
 
 </div>
   <div class="col-sm-6">
+        <label for="package_id" class="d-block">Duration<span style="color:rgba(255,0,0,1)">*</span></label>
+       
+       <select wire:model="price_package_id" class="d-block" >
+        <option value="0" selected>Choose Duration</option>
+       @foreach($prices_packages as $item)
+       		<option value="{{$item->id}}"> (  {{$item->duration}} Min) (  &pound;{{$item->price}} )</option>
+       @endforeach
+       </select>
+        @error('price_package_id') <span class="error">{{ $price_package_id }} </span> @enderror
+
         <label for="card_number" class="d-block">Card Nnumber<span style="color:rgba(255,0,0,1)">*</span></label>
        
-       <input autocomplete='off' name="card_number" id="card_number" class="card-number" wire:model="card_number" type="text" placeholder="4242 4242 4242 4242" required value="4242 4242 4242 4242">
+       <input autocomplete='off' name="card_number" id="card_number" class="card-number" wire:model="card_number" type="text" placeholder="4242 4242 4242 4242" required value="">
         @error('card_number') <span class="error">{{ $card_number }} </span> @enderror
         
         
@@ -57,12 +67,12 @@
         <input size="4" autocomplete='off' name="card_expiry_year" id="card_expiry_year" class="card-expiry-year"  wire:model="card_expiry_year"  type="number" placeholder="YYYY" required>
         @error('card_expiry_year') <span class="error">{{ $card_expiry_year }} </span> @enderror
         
-       <button type="submit"  style="margin-top:20px;" wire:target="doCheckout">Pay Now ( &pound;{{number_format($camera->price , 2)}} )</button>
+       <button type="submit"  style="margin-top:20px;" wire:target="doCheckout">Pay Now </button>
         </div>
 </div>
         </form>
     </section>
- <script src="{{asset('js/jquery.min.js')}}"></script>    
+<script src="{{asset('js/jquery.min.js')}}"></script>    
 <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
 <script type="text/javascript">
 $(function() {
@@ -105,11 +115,7 @@ $(function() {
                 .text(response.error.message);
         } else {
             var token = response['id'];
-			 $('#stripeToken').val(token);
-           // $form.find('input[type=text]').empty();
-           // $form.append("<input type='text' name='stripeTokens' id='stripeToken' wire:model='stripeTokens'  value='" + token + "'/>");
-			var element = document.getElementById('stripeToken');
-element.dispatchEvent(new Event('input'));
+			 @this.set('stripeToken',token); 
 		 	Livewire.emit('doCheckout');
         }
     }

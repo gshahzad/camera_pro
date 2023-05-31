@@ -12,7 +12,7 @@
             <div class="card">
              
               <div class="card-body" style="background-image:url({{asset('img/camera.png')}})">
-                <a href="{{url('camera_detail/'.$item->id.'/'.Str::slug($item->name).'')}}" style="color:rgba(0,0,0,1); "> {{$item->name}}</a>
+                <a href="{{url('camera-detail/'.$item->id.'/'.Str::slug($item->name).'')}}" style="color:rgba(0,0,0,1); "> {{$item->name}}</a>
               </div>
             </div>
           </div>
@@ -95,7 +95,7 @@
       <div class="container">
         <div class="text-center w-100">
           <h1>Join us and start earning!</h1>
-          <button class="primary_btn mx-auto mt-5">Find Out More</button>
+          <button class="primary_btn mx-auto mt-5"><a href="{{url('contact')}}" style="text-decoration: none; color:#ffffff">Find Out More</a></button>
         </div>
       </div>
     </section>

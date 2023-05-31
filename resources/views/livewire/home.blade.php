@@ -11,10 +11,10 @@
             <p class="d-inline">from your existing security systems</p>
             <div class="btns d-flex flex-wrap mt-4">
               <button class="btn1 mt-2 mt-sm-0">
-                <img src="{{ asset('img/info.png')}}" alt="info" /> Learn More
+               <a href="{{url('about')}}" style="text-decoration: none; color:#ffffff"> <img src="{{ asset('img/info.png')}}" alt="info" /> Learn More</a>
               </button>
               <button class="btn2 mt-2 mt-sm-0" >
-                <img src="{{ asset('img/msgicon.png')}}" alt="info" /> Contact us
+               <a href="{{url('contact')}}" style="text-decoration: none; color:#1A6BA1"> <img src="{{ asset('img/msgicon.png')}}" alt="info" /> Contact us</a>
               </button>
             </div>
           </div>
@@ -167,7 +167,7 @@
       <div class="container">
         <div class="text-center w-100">
           <h1>Join us and start earning!</h1>
-          <button class="primary_btn mx-auto">Find Out More</button>
+          <button class="primary_btn mx-auto"> <a href="{{url('contact')}}" style="text-decoration: none; color:#ffffff">Find Out More</a></button>
         </div>
         
 
