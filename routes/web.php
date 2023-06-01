@@ -10,6 +10,9 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+Route::get('/admin-home', function () {
+    return view('admin_home');
+});
 Route::get('/', \App\Http\Livewire\HomeController::class);
 Route::get('/about', \App\Http\Livewire\AboutUsController::class);
 Route::get('/contact', \App\Http\Livewire\ContactUsController::class);
