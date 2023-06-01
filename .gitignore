@@ -1,4 +1,7 @@
 /vendor/
+/public/assets/
+/public/sass/
+/public/demo/
 node_modules/
 npm-debug.log
 yarn-error.log
